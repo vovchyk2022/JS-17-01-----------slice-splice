@@ -1,107 +1,162 @@
-// function sum() {
-//     console.log("arguments:", arguments)
-//     let summa = 0;
-//     for (let index = 0; index < arguments.length; index++) {
-//         summa += arguments[index];
-//         }
-//         return summa;
-// }
+// // not modify
+// // indexOf
+// // lastIndexOf
+// // includes
+// // reduce
+// // concat
+// // slice
+// // find, findIndex, findLast, findLastIndex
 
-// sum(1,2,3,4);
-// console.log(sum(1,2,3,4))
+// // modify:
+// // push
+// // pop
+// // reverse
+// // unshit
+// // shift
+// // splice
+// // sort
 
-// const arr1 = [10,20,30,40,30,50,30,60];
-// const arr2 = [9,12,18];
-// const arr3 = arr1.concat(arr2)
-// const arr3 = arr1.concat(25,28,19);
-// const arr3 = arr1.slice(2,5);
-// const key = 3;
-
+// const arr1 = [10,20,30,40,50,60,70,80];
+// const result1 = arr1.slice(3);
 // console.log(arr1);
-// const arr3 = arr1.splice(2);
-// const arr3 = arr1.splice(2,2, 77, 78);
-// const arr3 = arr1.splice(2,0, 77, 78);
-// console.log(arr1);
+// console.log(result1);
+
+// const arr2 = [10,20,30,40,50,60,70,80];
+// const result2 = arr2.slice(3);
+// console.log(arr2);
+// console.log(result2);
+
+// const arr2 = [10,20,30,40,50,60,70,80];
+// const result2 = arr2.splice(3);
+// console.log(arr2);
+// console.log(result2);
+
+// // Варіант1 - вивести перший елемент, що відповідає умові
+// const arr3 = [10,20,30,40,50,60,70,80];
+// const result3 = arr3.find(function (currentElement){
+//     return currentElement > 4;
+// });
 // console.log(arr3);
+// console.log(result3);
 
-// console.log(arr1.indexOf(key));
-// console.log(arr1.indexOf(key,3));
-// console.log(arr1.lastIndexOf(key));
-// console.log(arr1.includes(key)); // true || false
-
-// Приклад №1 - написати ф-ю,яка буде приймати масив та рядок
-// і повертає true, якщо рядок є в масиві
-// та false, якщо рядка немає
-// врахувати, що масив може бути порожнім
-
-// /**
-//  *
-//  * @param {[string]} arr
-//  * @param {string} str
-//  * @returns {boolean}
-//  */
-// function hasElement(arr, str) {
-//   return arr.includes(str);
+// // Варіант2 - вивести перший елемент, що відповідає умові
+// const arr3 = [10,20,30,40,50,60,70,80];
+// for (let i = 0; i < arr3.length; i++) {
+//   if(arr3[i] > 4){
+//   console.log(arr3[i]);
 // }
-// console.log(hasElement(["qwe"], "qwe"));
-
-// Приклад №2 - написати ф-ю, яка приймає масив з числами,
-// повертає середнє значення усіх елементів масива
-// [2,4] =>3 / врахувати, що масив може бути порожнім - повертати null
-
-// Варіант№1
-// /**
-//  * 
-//  * @param {number} arr 
-//  * @returns {number | null}
-//  */
-// function getAverage(arr) {
-//   if (arr.length === 0) {
-//     return null;
-//   }
-//   let summa = 0;
-//   for (let index = 0; index < array.length; index++) {
-//     summa += arr[index];
-//   }
-//   return summa/arrlength;
 // }
 
+// const arr3 = [10,20,30,40,50,60,70,80];
+// const result4 = arr3.reverse(function (currentElement){
+//     return currentElement > 4;
+// });
+// console.log(arr3);
+// console.log(result4);
 
-// // Варіант№2
-// /**
-//  * 
-//  * @param {number} arr 
-//  * @returns {number | null}
-//  */
-// function getAverage(arr) {
-//   if (arr.length === 0) {
-//     return null;
+// //написати ф-ю, яка приймає два параметри: мінімум і максимум діапазону
+// // повертає масив, значення якого будуть усі числа з діапазону, включаючи мінімум і макимум
+// //третій необов'язковий аргумент ф-ї приймає крок для визначення елементів
+// // за замовчуванням крок = 1
+
+// function getArrayByRange(min,max,step=1){
+//     const arr = [];
+//     for (let i= min; i <=max; i+=step){
+//         arr.push(i);
+//     }
+//     return arr;
+// }
+// console.log(getArrayByRange(3,108,10));
+
+// const arr1 = new Array(5);
+// // arr1.fill('!')
+// const arr1 = new Array(5).fill('!').concat(1,2,3).reverse();
+// console.log(arr1);
+// arr1.splice(5,0,44,55);
+// console.log(arr1);
+
+// Задача - повернути ім'я користувача, якому менше 30 років
+const users = [
+  { name: "Brad", age: 59 },
+  { name: "Tom", age: 30 },
+  { name: "Pol", age: 59 },
+  { name: "Bob", age: 20 },
+  { name: "Bill", age: 22 },
+];
+
+// //Варіант1
+// const userName = users.find(checkAge).name;
+// console.log(userName);
+
+// function checkAge(currentElement){
+// return currentElement.age <30;
+// }
+
+// // Варіант2
+// const userName = users.find(function(user){
+//     return user.age <30;
+// }).name;
+// console.log(userName);
+
+// // Варіант3 - повернути ім'я усіх користувачів віком до 30
+// const validateUsers = [];
+// for (let index = 0; index < users.length; index++) {
+//   if (checkAge(users[index])) {
+//     validateUsers.push(users[index]);
 //   }
-// //   let summa = 0;
-// //   for (let index = 0; index < array.length; index++) {
-// //     summa += arr[index];
-// //   }
-//   const summa = arr.reduce(function(result,element){
-//     return result + element;
+// }
+// console.log(validateUsers);
+// function checkAge(currentElement) {
+//   return currentElement.age < 30;
+// }
+
+// // Варіант3.1 - усіх користувачів віком до 30
+
+// const validateUsers = users.filter(function(user){
+//     return user.age <30;
 // })
-//   return summa/arr.length;
+// console.log(validateUsers);
+
+// const userNames = users.map(function(user){
+//     return user.name;
+// })
+// console.log(userNames);
+
+// const validateUsersNames = users.filter(checkAge).map(getName);
+// console.log(validateUsersNames);
+
+// function checkAge(currentElement){
+//     return currentElement.age < 30;
+// }
+
+// function getName(currentElement) {
+//     return currentElement.name;
 // }
 
 
+// Завдання - отримати методом масивів суму парних чисел
+const key = 3;
+const arr1 = [1,2,8,4,3,6,3,8,9,3,3];
+// // відібрати парні - filter 
+// // порахувати суму - reduce
+// const summaEvenValues = arr1
+//   .filter(function (elem) {
+//     return elem % 2 === 0;
+//   })
+//   .reduce(function (accum, elem) {
+//     return accum + elem;
+//   });
+// console.log(summaEvenValues);
 
-// // // Приклад
-// const arr1 = [10,20,30,40,30,50,30,60];
-// const arr2 = [9,12,18];
+// знайти скільки разів зустрічається ключ
+// відібрати значення, які дорівнюють ключу
+// порахувати к-ть
+const countKey = arr1.filter(function(elem) {
+   return elem === key; 
+}).length;
+// повернути масив з непустим значенням
+const arr2 = [undefined,1,2,8,4,3,undefined,6,3,8,9,3,3,null];
+const notEmptyValueArray = arr2.filter(function(elem){return elem})
 
-// // const summa = arr2.reduce(function(accumulator,currentValue){
-// //     return accumulator * currentValue
-// // }, 1000)
-// const summa = arr2.reduce(function(accumulator,currentValue,index){
-//     return accumulator + (index % 2 ? currentValue:0)
-// }, 1000)
-// console.log(summa)
-
-
-// написати функцію, яка приймає масив чисел і повертає true, якщо в цьому масиві є два однакових числа поспіль / якщо немає повертає false, якщо масив порожній то повертає теж false 
 
 

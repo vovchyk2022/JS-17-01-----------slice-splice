@@ -1,45 +1,46 @@
 
-// // constructor for prototype
-// function MyArrayPrototype() {
-//     this.push = function () {
-//       for (let index = 0; index < arguments.length; index++) {
-//         this[this.length++] = arguments[index];
-//        // this.length++;
-        
-//       }
-//       return this.length;
-//     }
+// constructor for prototype
+function MyArrayPrototype() {
+    this.push = function () {
+    };
+    this.pop = function () {
+    }
+this.reverse = function(){
+    }
+    }
 
-//     //виправити щоб не було від'ємної довжини
-//     this.pop = function(){
-//       if(this.length ===0 ) {
-//         return;
-//       }   const lastItem = this[this.length - 1];
-//       delete this[--this.length];
-//       // this.length--;
-//       return lastItem;
-//     }
-//   }
- 
-//   //constructor with data
-//   function MyArray() {
-//       this.length = 0;
-//       for (let index = 0; index < arguments.length; index++) {
-//         this.push(arguments[index]);
-//       }
-//   }
+    // cтворити новий екземпляр нашого масиву
+    const newMyArray = new MyArray();
+    // зпушити в нього елементи з поточного масиву у зворотньому порядку 
+    for (let i = this.length-1; i >=0; i--) {newMyArray.push(this[i])
+    }
+    for (let i = 0, i < this.length; i++){
+        this[i] = newMyArray[i];
+    }
+    // повернути новий екземпляринашого масиву
+    return newMyArray;  
+
+
+  //constructor with data
+  function MyArray() {
+      this.length = 0;
+      for (let i = 0; i < arguments.length; i++) {
+        this.push(arguments[i]);
+      }
+
+  }
   
-//   MyArray.prototype = new MyArrayPrototype();
+  MyArray.prototype = new MyArrayPrototype();
   
 
-//   const myArrayNumbers = new MyArray(4,5,8,9);
-//   myArrayNumbers.push(777);
-//   console.log(myArrayNumbers);
+  const myArrayNumbers = new MyArray(4,5,8,9);
+  myArrayNumbers.push(777);
+const newMyArrayReverse = MyArrayPrototype.reverse();  console.log(myArrayNumbers);
 
-//   myArrayNumbers.pop();
-//   myArrayNumbers.pop();
-//   console.log(myArrayNumbers);
+  // myArrayNumbers.pop();
+  // myArrayNumbers.pop();
+  // console.log(myArrayNumbers);
 
-//   const arrayNumbers = [1,2,5,8];
-//   arrayNumbers.push(555);
-//   console.log(arrayNumbers);  
+  // const arrayNumbers = [1,2,5,8];
+  // arrayNumbers.push(555);
+  // console.log(arrayNumbers);  
